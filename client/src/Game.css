@@ -1,0 +1,69 @@
+
+.game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f1baba;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.choice-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.choice-image {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.2s;
+}
+
+.choice-button:hover .choice-image {
+    transform: scale(1.1);
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.result-rock {
+    color: #d35400;
+}
+
+.result-paper {
+    color: #2980b9;
+}
+
+.result-scissors {
+    color: #c0392b;
+}
+
+.result-win {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.result-lose {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.result-draw {
+    color: #95a5a6;
+    font-weight: bold;
+}
+
+.scores {
+    margin-top: 20px;
+}
