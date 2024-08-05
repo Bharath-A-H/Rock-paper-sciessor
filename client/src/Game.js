@@ -12,6 +12,8 @@ const Game = () => {
     const [result, setResult] = useState('');
     const [userScore, setUserScore] = useState(0);
     const [computerScore, setComputerScore] = useState(0);
+    const [roundsPlayed, setRoundsPlayed] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
 
     const choices = [
         { name: 'rock', image: rockImg },
@@ -20,6 +22,8 @@ const Game = () => {
     ];
 
     const handleClick = async (choice) => {
+        if (gameOver) return;
+
         setUserChoice(choice.name);
         try {
             const response = await axios.post('http://localhost:3001/play', { choice: choice.name });
@@ -31,8 +35,34 @@ const Game = () => {
             } else if (response.data.result === 'lose') {
                 setComputerScore(computerScore + 1);
             }
+
+            setRoundsPlayed(roundsPlayed + 1);
+
+            if (roundsPlayed + 1 === 3) {
+                setGameOver(true);
+            }
         } catch (error) {
             console.error("There was an error!", error);
+        }
+    };
+
+    const resetGame = () => {
+        setUserChoice('');
+        setComputerChoice('');
+        setResult('');
+        setUserScore(0);
+        setComputerScore(0);
+        setRoundsPlayed(0);
+        setGameOver(false);
+    };
+
+    const renderResultMessage = () => {
+        if (userScore > computerScore) {
+            return "You won the game!";
+        } else if (userScore < computerScore) {
+            return "Computer won the game!";
+        } else {
+            return "The game is a draw!";
         }
     };
 
@@ -54,6 +84,12 @@ const Game = () => {
                     <h2>Your Score: {userScore}</h2>
                     <h2>Computer Score: {computerScore}</h2>
                 </div>
+                {gameOver && (
+                    <div className="game-over">
+                        <h2>{renderResultMessage()}</h2>
+                        <button onClick={resetGame} className="new-game-button">New Game</button>
+                    </div>
+                )}
             </div>
         </div>
     );

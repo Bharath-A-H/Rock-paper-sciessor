@@ -1,12 +1,26 @@
+body {
+    background-image: url("C:\Users\Bharath\Downloads\rps bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark font color */
+}
+
 .game-container {
     text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f1baba;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     max-width: 600px;
-    margin: 0 auto;
-    margin-top: 100px;
+    margin: 100px auto;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+h1 {
+    margin-top: 30px;
+    color: #2c3e50; 
 }
 
 .choices {
@@ -20,12 +34,16 @@
     border: none;
     cursor: pointer;
     outline: none;
+    background-color: rgb(116, 204, 125); 
+    border-radius: 50%;
+    padding: 10px;
 }
 
 .choice-image {
     width: 100px;
     height: 100px;
     transition: transform 0.2s;
+    border-radius: 50%;
 }
 
 .choice-button:hover .choice-image {
@@ -59,10 +77,34 @@
 }
 
 .result-draw {
-    color: #95a5a6;
+    color: #0a6e76;
     font-weight: bold;
 }
 
 .scores {
     margin-top: 20px;
+    background-color: #f0e68c; 
+    padding: 10px;
+    border-radius: 10px;
+    color: #333; /* Dark font color */
+}
+
+.game-over {
+    margin-top: 20px;
+    color: #333; /* Dark font color */
+}
+
+.new-game-button {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.new-game-button:hover {
+    background-color: #1f6391;
 }
